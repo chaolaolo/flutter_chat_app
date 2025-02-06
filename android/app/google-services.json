@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "452480797141",
+    "project_id": "ochat-flutterchatapp",
+    "storage_bucket": "ochat-flutterchatapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:452480797141:android:5a4bd5cd31f5afa9f1555c",
+        "android_client_info": {
+          "package_name": "com.example.chat_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDP29ls4WiYlAsKwxcaqH8PleftwEFZ-Tc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
