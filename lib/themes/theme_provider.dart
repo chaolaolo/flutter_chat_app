@@ -1,3 +1,4 @@
+import 'package:chat_app/themes/dark_mode.dart';
 import 'package:chat_app/themes/light_mode.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,7 @@ class ThemeProvider extends ChangeNotifier {
   ThemeData get themeData => _themeData;
 
   // is dark mode
-  bool get isDarkMode => _themeData == lightMode;
+  bool get isDarkMode => _themeData == darkMode;
 
   // set theme
   set themData(ThemeData themeData) {
@@ -21,7 +22,7 @@ class ThemeProvider extends ChangeNotifier {
   //toggle theme
   void toggleTheme() {
     if (_themeData == lightMode) {
-      themData = lightMode;
+      themData = darkMode;
     } else {
       themData = lightMode;
     }

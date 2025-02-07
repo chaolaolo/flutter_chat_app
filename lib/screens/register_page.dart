@@ -1,8 +1,10 @@
-import 'package:chat_app/auth/auth_service.dart';
 import 'package:chat_app/components/my_button.dart';
 import 'package:chat_app/components/my_text_field.dart';
+import 'package:chat_app/services/auth/auth_service.dart';
+import 'package:chat_app/themes/theme_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:provider/provider.dart';
 
 class RegisterPage extends StatelessWidget {
   //text controller
@@ -20,6 +22,8 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDarkMode = Provider.of<ThemeProvider>(context).isDarkMode;
+
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
       body: Center(
@@ -30,14 +34,14 @@ class RegisterPage extends StatelessWidget {
             Icon(
               Iconsax.message_favorite5,
               size: 60,
-              color: Theme.of(context).colorScheme.primary,
+              color: isDarkMode ? Colors.grey.shade500 : Theme.of(context).colorScheme.primary,
             ),
             const SizedBox(height: 50),
             //   welcome back message
             Text(
               "Let's create an account for you!",
               style: TextStyle(
-                color: Theme.of(context).colorScheme.primary,
+                color: isDarkMode ? Colors.grey.shade400 : Theme.of(context).colorScheme.primary,
                 fontSize: 16,
               ),
             ),
@@ -77,7 +81,7 @@ class RegisterPage extends StatelessWidget {
                 Text(
                   "Already have an account?",
                   style: TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
+                    color: isDarkMode ? Colors.grey.shade400 : Theme.of(context).colorScheme.primary,
                   ),
                 ),
                 GestureDetector(
@@ -86,7 +90,7 @@ class RegisterPage extends StatelessWidget {
                     " Login now",
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      color: Theme.of(context).colorScheme.primary,
+                      color: isDarkMode ? Colors.grey.shade400 : Theme.of(context).colorScheme.primary,
                     ),
                   ),
                 ),
@@ -108,7 +112,7 @@ class RegisterPage extends StatelessWidget {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            title: Text(e.toString()),
+            title: Text(e.toString(), style: TextStyle(fontSize: 18)),
             content: Text("Something went wrong"),
             actions: [
               TextButton(
@@ -124,7 +128,7 @@ class RegisterPage extends StatelessWidget {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          title: Text("Password don't match"),
+          title: Text("Password don't match", style: TextStyle(fontSize: 18)),
           content: Text("Please confirm your password again!"),
           actions: [
             TextButton(
