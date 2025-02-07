@@ -1,3 +1,4 @@
+import 'package:chat_app/screens/blocked_users_page.dart';
 import 'package:chat_app/themes/theme_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,23 +15,55 @@ class SettingsPage extends StatelessWidget {
         title: Text("Settings"),
         backgroundColor: Colors.blueGrey.shade300,
       ),
-      body: Container(
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.secondary,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        margin: EdgeInsets.all(25),
-        padding: EdgeInsets.all(16),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text("Dark mode"),
-            CupertinoSwitch(
-              value: Provider.of<ThemeProvider>(context, listen: false).isDarkMode,
-              onChanged: (value) => Provider.of<ThemeProvider>(context, listen: false).toggleTheme(),
+      body: Column(
+        children: [
+          //change theme mode switch
+          Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.secondary,
+              borderRadius: BorderRadius.circular(12),
             ),
-          ],
-        ),
+            margin: EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+            padding: EdgeInsets.all(16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Dark mode"),
+                CupertinoSwitch(
+                  value: Provider.of<ThemeProvider>(context, listen: false).isDarkMode,
+                  onChanged: (value) => Provider.of<ThemeProvider>(context, listen: false).toggleTheme(),
+                ),
+              ],
+            ),
+          ),
+
+          // blocked users (tap to go blocked users page)
+          Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.secondary,
+              borderRadius: BorderRadius.circular(12),
+            ),
+            margin: EdgeInsets.symmetric(horizontal: 25, vertical: 0),
+            padding: EdgeInsets.all(16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Blocked Users"),
+                IconButton(
+                    onPressed: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => BlockedUsersPage(),
+                          ),
+                        ),
+                    icon: Icon(
+                      Icons.arrow_forward_ios,
+                      color: Theme.of(context).colorScheme.primary,
+                    ))
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

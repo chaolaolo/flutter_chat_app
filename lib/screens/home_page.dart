@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
         }
         // loading..
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return CircularProgressIndicator();
+          return Center(child: CircularProgressIndicator());
         }
         // list chat
         return ListView(
