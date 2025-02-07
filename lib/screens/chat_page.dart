@@ -30,15 +30,15 @@ class _ChatPageState extends State<ChatPage> {
   final AuthService _authService = AuthService();
 
   //for text field focus
-  FocusNode _focusNode = FocusNode();
+  FocusNode _myFocusNode = FocusNode();
 
   @override
   void initState() {
     super.initState();
 
     // add listener to focus node
-    _focusNode.addListener(() {
-      if (_focusNode.hasFocus) {
+    _myFocusNode.addListener(() {
+      if (_myFocusNode.hasFocus) {
         Future.delayed(
           const Duration(milliseconds: 500),
           () => scrollDown(),
@@ -46,12 +46,16 @@ class _ChatPageState extends State<ChatPage> {
       }
     });
 
-    //wait a bit for listview to be built, then scroll
+    //wait a bit for listview to be built, then scroll to bottom
+    Future.delayed(
+      const Duration(milliseconds: 500),
+      () => scrollDown(),
+    );
   }
 
   @override
   void dispose() {
-    _focusNode.dispose();
+    _myFocusNode.dispose();
     _messageController.dispose();
     super.dispose();
   }
@@ -74,6 +78,7 @@ class _ChatPageState extends State<ChatPage> {
       await _chatService.sendMessage(widget.receiverID, message);
       _messageController.clear();
     }
+    scrollDown();
   }
 
   @override
@@ -157,7 +162,7 @@ class _ChatPageState extends State<ChatPage> {
               hintText: "Type a message..",
               obscureText: false,
               controller: _messageController,
-              focusNode: _focusNode,
+              focusNode: _myFocusNode,
             ),
           ),
           // send icon
