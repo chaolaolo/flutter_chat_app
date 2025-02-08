@@ -1,1 +1,38 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"ochat-flutterchatapp","appId":"1:452480797141:android:5a4bd5cd31f5afa9f1555c","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"ochat-flutterchatapp","configurations":{"android":"1:452480797141:android:5a4bd5cd31f5afa9f1555c","ios":"1:452480797141:ios:a2e8ef2ea9abb289f1555c","macos":"1:452480797141:ios:a2e8ef2ea9abb289f1555c","web":"1:452480797141:web:92ceb0470de40354f1555c","windows":"1:452480797141:web:4570e5feef1d0619f1555c"}}}}}}
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "ochat-flutterchatapp",
+          "appId": "1:452480797141:android:5a4bd5cd31f5afa9f1555c",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "ochat-flutterchatapp",
+          "configurations": {
+            "android": "1:452480797141:android:5a4bd5cd31f5afa9f1555c",
+            "ios": "1:452480797141:ios:a2e8ef2ea9abb289f1555c",
+            "macos": "1:452480797141:ios:a2e8ef2ea9abb289f1555c",
+            "web": "1:452480797141:web:92ceb0470de40354f1555c",
+            "windows": "1:452480797141:web:4570e5feef1d0619f1555c"
+          }
+        }
+      }
+    }
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "default",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "*.local"
+      ]
+    }
+  ]
+}
