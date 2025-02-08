@@ -45,5 +45,29 @@ class AuthService {
   Future<void> signOut() async {
     return await _auth.signOut();
   }
+
+  //delete account
+  Future<void> deleteAccount() async {
+    User? user = getCurrentUser();
+    if (user != null) {
+      //delete user's data from firestore
+      await _firestore.collection("Users").doc(user.uid).delete();
+      //delete user's data from auth record
+      await user.delete();
+    }
+  }
+
 // errors
+  String getErrorMessage(String errorCode) {
+    switch (errorCode) {
+      case "Exception: wrong-password":
+        return "The password is incorrect, please try again!";
+      case "Exception: user-not-found":
+        return "No user found with this email, please sign up!";
+      case "Exception: invalid-email":
+        return "The email doesn't exists, please try again!";
+      default:
+        return "Something went wrong, please try again later!";
+    }
+  }
 }
