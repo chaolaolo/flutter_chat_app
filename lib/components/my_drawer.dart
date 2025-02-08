@@ -1,3 +1,4 @@
+import 'package:chat_app/components/drawer_tile.dart';
 import 'package:chat_app/screens/home_page.dart';
 import 'package:chat_app/screens/settings_page.dart';
 import 'package:chat_app/services/auth/auth_service.dart';
@@ -33,14 +34,9 @@ class MyDrawer extends StatelessWidget {
               //home tile
               Padding(
                 padding: const EdgeInsets.only(left: 25.0),
-                child: ListTile(
-                  title: Text(
-                    "HOME",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  leading: Icon(Icons.home),
+                child: DrawerTile(
+                  title: "HOME",
+                  icon: Icons.home,
                   onTap: () {
                     Navigator.pop(context);
                   },
@@ -49,14 +45,9 @@ class MyDrawer extends StatelessWidget {
               //settings tile
               Padding(
                 padding: const EdgeInsets.only(left: 25.0),
-                child: ListTile(
-                  title: Text(
-                    "SETTINGS",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  leading: Icon(Icons.settings),
+                child: DrawerTile(
+                  title: "SETTINGS",
+                  icon: Icons.settings,
                   onTap: () {
                     Navigator.pop(context);
                     Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
@@ -68,14 +59,9 @@ class MyDrawer extends StatelessWidget {
           //logout tile
           Padding(
             padding: const EdgeInsets.only(left: 25.0, bottom: 25.0),
-            child: ListTile(
-              title: Text(
-                "SIGN OUT",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              leading: Icon(Icons.logout),
+            child: DrawerTile(
+              title: "SIGN OUT",
+              icon: Icons.logout,
               onTap: () => logout(context),
             ),
           )
