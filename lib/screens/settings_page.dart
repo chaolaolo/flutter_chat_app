@@ -102,8 +102,9 @@ class SettingsPage extends StatelessWidget {
             action: IconButton(
               onPressed: () => confirmDeleteAccount(context),
               icon: Icon(
-                Icons.delete_forever,
-                color: Theme.of(context).colorScheme.primary,
+                Icons.delete,
+                color: Theme.of(context).colorScheme.inversePrimary,
+                size: 30,
               ),
             ),
             color: Colors.red.shade400,

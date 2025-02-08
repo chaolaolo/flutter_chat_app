@@ -1,7 +1,7 @@
 import 'package:chat_app/firebase_options.dart';
 import 'package:chat_app/screens/login_page.dart';
 import 'package:chat_app/screens/register_page.dart';
-import 'package:chat_app/services/auth/auht_gate.dart';
+import 'package:chat_app/services/auth/auth_gate.dart';
 import 'package:chat_app/themes/dark_mode.dart';
 import 'package:chat_app/themes/light_mode.dart';
 import 'package:chat_app/themes/theme_provider.dart';
@@ -27,8 +27,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: AuhtGate(),
+      // home: AuthGate(),
       theme: Provider.of<ThemeProvider>(context).themeData,
+      initialRoute: '/',
+      routes: {'/': (context) => const AuthGate()},
     );
   }
 }

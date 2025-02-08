@@ -30,7 +30,6 @@ class MyDrawer extends StatelessWidget {
                   ),
                 ),
               ),
-
               //home tile
               Padding(
                 padding: const EdgeInsets.only(left: 25.0),
@@ -77,7 +76,7 @@ class MyDrawer extends StatelessWidget {
                 ),
               ),
               leading: Icon(Icons.logout),
-              onTap: logout,
+              onTap: () => logout(context),
             ),
           )
         ],
@@ -85,8 +84,11 @@ class MyDrawer extends StatelessWidget {
     );
   }
 
-  void logout() {
+  void logout(BuildContext context) {
     final auth = AuthService();
     auth.signOut();
+
+    // then navigate to initial route (AuthGate())
+    Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
   }
 }

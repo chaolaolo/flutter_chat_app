@@ -1,5 +1,6 @@
 import 'package:chat_app/components/chat_bubble.dart';
 import 'package:chat_app/components/my_text_field.dart';
+import 'package:chat_app/screens/home_page.dart';
 import 'package:chat_app/services/auth/auth_service.dart';
 import 'package:chat_app/services/chat/chat_service.dart';
 import 'package:chat_app/themes/theme_provider.dart';
@@ -88,6 +89,20 @@ class _ChatPageState extends State<ChatPage> {
       appBar: AppBar(
         title: Text(widget.receiverEmail),
         backgroundColor: Colors.blueGrey.shade300,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new),
+          onPressed: () {
+            // navigate to home page and remove all previous pages route
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomePage(),
+              ),
+              //keep the first rout (AthGate())
+              (route) => route.isFirst,
+            );
+          },
+        ),
       ),
       body: Column(
         children: [
